@@ -15,11 +15,19 @@ public class Main {
             Transaction transaction = session.beginTransaction();
 
             // Tworzymy studenta
-            Student student = new Student();
-            student.setImie("Paweł");
-            student.setDataUrodzenia(LocalDate.of(1990,1,3));
-            student.setKierunekNauczania("Informatyka");
-            student.setIndeks("123123");
+//            Student student = new Student();
+//            student.setImie("Paweł");
+//            student.setDataUrodzenia(LocalDate.of(1990,1,3));
+//            student.setKierunekNauczania("Informatyka");
+//            student.setIndeks("123123");
+
+
+            Student student = Student.builder()
+                    .imie("Paweł")
+                    .kierunekNauczania("Informatyka")
+                    .dataUrodzenia(LocalDate.of(1990, 1, 3))
+                    .indeks("123123")
+                    .build();
 
             //zapisujemy studenta
             session.persist(student);
