@@ -2,12 +2,10 @@ package pl.sda.hibernate.demo;
 
 import jakarta.persistence.TypedQuery;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
-import java.time.LocalDate;
 import java.util.List;
 
-public class MainSelect {
+public class MainRead_SelectList {
     public static void main(String[] args) {
 // wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()) {
