@@ -10,5 +10,8 @@
         <property name="connection.password">root</property>
         <!-- DB schema will be updated if needed -->
          <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!--Definicja modeli-->
+        <mapping class="pl.sda.hibernate.demo.Student"/>
     </session-factory>
 </hibernate-configuration>
