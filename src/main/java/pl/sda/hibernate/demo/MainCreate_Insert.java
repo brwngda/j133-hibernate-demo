@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 public class MainCreate_Insert {
     public static void main(String[] args) {
-// wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
+        // wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
 
@@ -23,7 +23,7 @@ public class MainCreate_Insert {
 //            student.setKierunekNauczania("Informatyka");
 //            student.setIndeks("123123");
 
-
+//          Student student = new Student("Paweł", LocalDate.of(1990,1,3), "Informatyka", "123123");
             Student student = Student.builder()
                     .imie("Paweł")
                     .kierunekNauczania("Informatyka")
@@ -31,23 +31,21 @@ public class MainCreate_Insert {
                     .indeks("123123")
                     .build();
 
-            // SQL: UPDATE `student` SET ... WHERE id=X
+            // SQL: INSERT INTO 'student' values (...)
+            // zapisujemy studenta
             // Merge:
             // - służy do aktualizacji,
-            // - wtmaga podania id, co jest kryterium aktualizacji(aktualizujemy obieky o podanym id)
+            // - wymaga podania id, co jest kryterium aktualizacji (aktualizujemy obieky o podanym id)
             // Persist:
             //  - służy do wstawiania NOWYCH rekordów do bazy,
-            //  - przeważnie dnie podaje się ID ponieważ jest generowane
-
-            // SQL: INSTER INTO `student` VALUES (...)
-            //zapisujemy studenta
+            //  - przeważnie nie podaje się ID ponieważ jest generowane
             session.persist(student);
 
             // zatwierdzamy transakcję
             transaction.commit();
         } catch (Exception ioe) {
             // jeśli złapiemy błąd, to wywoła się catch
-
+            System.err.println("Błąd bazy: " + ioe);
         }
     }
 }

@@ -13,11 +13,11 @@ public class HibernateUtil {
     //  - wywołujemy konstruktor który jest prywatny
     //  - konstruktora nie da się wywołać nigdzie indziej
     //  - w środku klasy pomocniczej (util) jest pole fabryka
-
     public final static HibernateUtil INSTANCE = new HibernateUtil();
     private final SessionFactory sessionFactory;
 
     private HibernateUtil() {
+
         this.sessionFactory = loadConfigFile();
     }
 
@@ -35,6 +35,7 @@ public class HibernateUtil {
     }
 
     public SessionFactory getSessionFactory() {
+
         return sessionFactory;
     }
 }

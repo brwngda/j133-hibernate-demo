@@ -11,7 +11,7 @@ public class MainDelete_Delete {
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
 
-            // Najpierw SELECT * FROM Student WHERE id = @L
+            // Najpierw SELECT * FROM Student WHERE id = 2L
             Student student = session.get(Student.class, 2L);
 
             // jeśli udało się znaleźć

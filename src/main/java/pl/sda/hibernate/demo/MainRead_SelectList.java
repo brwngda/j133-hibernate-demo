@@ -7,11 +7,13 @@ import java.util.List;
 
 public class MainRead_SelectList {
     public static void main(String[] args) {
-// wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
+        // wywołaj try-with-resources który zamknie sesję automatycznie po opuszczeniu try
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()) {
+
             // Hibernate Query Language - odmiana SQL'a tylko w hibernate
             // Tworzymy obiekt "Zapytanie o typ" (TypedQuery) gdzie tworzymy na obiekcie sesji zapytanie "SELECT [NIE PODANE] FROM [Student]"
             TypedQuery<Student> zapytanie = session.createQuery("from Student", Student.class);
+
             // Wywołujemy metodę 'getResultList', która oznacza (SELECT + z poprzedniej linii: FROM [Student])
             List<Student> listaWszystkichStudentow = zapytanie.getResultList();
 

@@ -1,5 +1,9 @@
 package pl.sda.hibernate.demo;
 
+import org.hibernate.Session;
+
+import java.io.IOException;
+
 public class TryCatchPrzykladFinally {
     public static void main(String[] args) {
 //        // wywołaj try
